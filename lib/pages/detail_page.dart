@@ -178,8 +178,8 @@ class _DetailPageState extends State<DetailPage> {
                             width: 80,
                             child: Center(
                               child: Text(
-                                "Visit",
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                "Save",
+                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
                               ),
                             ),
                             decoration: BoxDecoration(
@@ -247,19 +247,22 @@ class _DetailPageState extends State<DetailPage> {
                                 ),
                               ));
                             },
-                            child: CachedNetworkImage(
-                              placeholder: (context, url) => Container(
-                                height: note[index].height.toDouble() /
-                                    note[index].width.toDouble() *
-                                    190,
-                                color: Color.fromARGB(
-                                  Random().nextInt(256),
-                                  Random().nextInt(256),
-                                  Random().nextInt(256),
-                                  Random().nextInt(256),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: CachedNetworkImage(
+                                placeholder: (context, url) => Container(
+                                  height: note[index].height.toDouble() /
+                                      note[index].width.toDouble() *
+                                      190,
+                                  color: Color.fromARGB(
+                                    Random().nextInt(256),
+                                    Random().nextInt(256),
+                                    Random().nextInt(256),
+                                    Random().nextInt(256),
+                                  ),
                                 ),
+                                imageUrl: note[index].urls.regular,
                               ),
-                              imageUrl: note[index].urls.regular,
                             ),
                           ),
                           Row(
